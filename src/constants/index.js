@@ -188,67 +188,66 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Conatus Website",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A web-based platform that provides detailed information about Conatus members, highlighting their skills, roles, and achievements. It also showcases the projects and work accomplished by Conatus. Each profile includes links for easy communication via messaging, email, and social media.",
     tags: [
       {
-        name: "react",
+        name: "HTML",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "CSS",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "JavaScript",
         color: "pink-text-gradient",
       },
     ],
     image: carrent,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/AMANverma9118/Conatus-Website",
   },
   {
-    name: "Job IT",
+    name: "Education Website",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "A web application that lets users explore the college campus and discover various degree programs. Users can contact the college through a simple inquiry form. It serves as a helpful guide for prospective students seeking information about education and campus life.",
     tags: [
       {
-        name: "react",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "Firebase",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "Bootstrap",
         color: "pink-text-gradient",
       },
     ],
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/AMANverma9118/Education-Website",
   },
   {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    name: "iNotebok",
+    description:"iNotebook is a website that provides login and signup options for users to securely store their personal information. It allows users to easily edit and delete their entries as needed. The platform is designed for a user-friendly experience in managing personal notes and data.",
     tags: [
       {
-        name: "nextjs",
+        name: "React",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "Node",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "Mongodb",
         color: "pink-text-gradient",
       },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/AMANverma9118/Notebook",
   },
 ];
 
