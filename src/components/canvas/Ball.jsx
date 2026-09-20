@@ -15,12 +15,12 @@ const Ball = (props) => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
+      <ambientLight intensity={0.35} />
+      <directionalLight position={[0, 0, 0.05]} intensity={0.85} />
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color='#fff8eb'
+          color="#fff8eb"
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
@@ -31,6 +31,8 @@ const Ball = (props) => {
           scale={1}
           map={decal}
           flatShading
+          transparent
+          depthWrite={false}
         />
       </mesh>
     </Float>

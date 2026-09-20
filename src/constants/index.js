@@ -15,146 +15,154 @@ import {
   figma,
   meta,
   starbucks,
-  tesla,
   shopify,
   carrent,
   jobit,
   tripguide,
-  threejs,
+  mythicaJewels,
+  aws,
 } from "../assets";
 
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "work", title: "Experience" },
+  { id: "tech", title: "Tech" },
+  { id: "projects", title: "Projects" },
+  { id: "contact", title: "Contact" },
 ];
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Full-Stack Development",
     icon: web,
   },
   {
-    title: "React Developer",
+    title: "React & Frontend",
     icon: mobile,
   },
   {
-    title: "Frontend Developer",
+    title: "APIs & Backend",
     icon: backend,
   },
   {
-    title: "Backend Developer",
+    title: "Databases & Cloud",
     icon: creator,
   },
 ];
 
+const si = (slug, color = "94a3b8") =>
+  `https://cdn.simpleicons.org/${slug}/${color}`;
+
 const technologies = [
+  // Languages
+  { name: "C / C++", icon: si("cplusplus", "00599C"), category: "Languages" },
+  { name: "Python", icon: si("python", "3776AB"), category: "Languages" },
+  { name: "JavaScript", icon: javascript, category: "Languages" },
+  { name: "SQL", icon: si("mysql", "4479A1"), category: "Languages" },
+
+  // Frontend
+  { name: "HTML 5", icon: html, category: "Frontend" },
+  { name: "CSS 3", icon: css, category: "Frontend" },
+  { name: "Bootstrap", icon: si("bootstrap", "7952B3"), category: "Frontend" },
+  { name: "Tailwind CSS", icon: tailwind, category: "Frontend" },
+  { name: "React JS", icon: reactjs, category: "Frontend" },
+  { name: "Redux Toolkit", icon: redux, category: "Frontend" },
+  { name: "React Native", icon: si("react", "61DAFB"), category: "Frontend" },
+
+  // Backend
+  { name: "Node JS", icon: nodejs, category: "Backend" },
   {
-    name: "HTML 5",
-    icon: html,
+    name: "Express.js",
+    icon: si("express", "ffffff"),
+    iconLight: si("express", "000000"),
+    category: "Backend",
   },
   {
-    name: "CSS 3",
-    icon: css,
+    name: "Flask",
+    icon: si("flask", "e2e8f0"),
+    iconLight: si("flask", "000000"),
+    category: "Backend",
   },
+  { name: "REST APIs", icon: si("fastapi", "009688"), category: "Backend" },
   {
-    name: "JavaScript",
-    icon: javascript,
+    name: "JWT",
+    icon: si("jsonwebtokens", "ffffff"),
+    iconLight: si("jsonwebtokens", "000000"),
+    category: "Backend",
   },
+  { name: "Firebase", icon: si("firebase", "FFCA28"), category: "Backend" },
+
+  // Databases
+  { name: "MongoDB", icon: mongodb, category: "Databases" },
+  { name: "MySQL", icon: si("mysql", "4479A1"), category: "Databases" },
+  { name: "PostgreSQL", icon: si("postgresql", "4169E1"), category: "Databases" },
+  { name: "SQLite", icon: si("sqlite", "003B57"), category: "Databases" },
+  { name: "Firestore", icon: si("googlecloud", "4285F4"), category: "Databases" },
+  { name: "Redis", icon: si("redis", "DC382D"), category: "Databases" },
+
+  // Tools & Cloud
+  { name: "Git", icon: git, category: "Tools" },
+  { name: "AWS", icon: aws, category: "Tools" },
+  { name: "NGINX", icon: si("nginx", "009639"), category: "Tools" },
   {
-    name: "React JS",
-    icon: reactjs,
+    name: "Vercel",
+    icon: si("vercel", "ffffff"),
+    iconLight: si("vercel", "000000"),
+    category: "Tools",
   },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
+  { name: "Render", icon: si("render", "46E3B7"), iconLight: si("render", "0A0A0A"), category: "Tools" },
+  { name: "Postman", icon: si("postman", "FF6C37"), category: "Tools" },
+  { name: "Cloudinary", icon: si("cloudinary", "3448C5"), category: "Tools" },
+  { name: "Cloudflare", icon: si("cloudflare", "F38020"), category: "Tools" },
+  { name: "Figma", icon: figma, category: "Tools" },
+];
+
+const techCategories = [
+  "All",
+  "Languages",
+  "Frontend",
+  "Backend",
+  "Databases",
+  "Tools",
 ];
 
 const experiences = [
   {
-    title: "Backend Developer",
-    company_name: "Conatus",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - July 2023",
-    points: [
-      "Developing and maintaining server-side applications using Node.js, Express, and other backend technologies.",
-      "Collaborating with cross-functional teams including frontend developers, product managers, and designers to deliver robust and scalable solutions.",
-      "Designing and implementing APIs, ensuring efficient data handling, and maintaining database integrity.",
-      "Participating in code reviews and offering constructive feedback to improve code quality and best practices.",
-    ],
-  },
-  {
-    title: "React.js Developer",
-    company_name: "Conatus",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "Aug 2023 - Jan 2024",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Conatus",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2024 - Aug 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Conatus",
+    title: "Software Development Engineer (SDE)",
+    company_name: "RapidFacto",
     icon: meta,
     iconBg: "#E6DEDD",
-    date: "Sep 2024 - Present",
+    date: "May 2026 – Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built and maintained 10+ full-stack web applications using React.js, Node.js, Flask, and MySQL.",
+      "Integrated OnlyOffice for real-time document viewing and editing, improving collaboration efficiency by 40%.",
+      "Developed 25+ secure RESTful APIs and backend services for scalable application workflows.",
+      "Optimized frontend–backend integration, reducing response time and improving data-flow efficiency by 35%.",
+    ],
+  },
+  {
+    title: "Full Stack Developer Intern",
+    company_name: "First500days",
+    icon: shopify,
+    iconBg: "#383E56",
+    date: "Feb 2026 – May 2026",
+    points: [
+      "Built and scaled full-stack web applications serving 5,000+ active users with reliable performance.",
+      "Built production-grade RESTful APIs and microservices with a focus on high scalability.",
+      "Optimized MongoDB queries and API performance, reducing latency by 40%.",
+      "Integrated AI/ML APIs to enable intelligent features, automation, and richer user interactions.",
+    ],
+  },
+  {
+    title: "Domain Incharge — Technical Society",
+    company_name: "AKGEC (Ajay Kumar Garg Engineering College)",
+    icon: starbucks,
+    iconBg: "#383E56",
+    date: "2022 – 2026",
+    points: [
+      "Organized workshops, hackathons, and coding contests for the college technical society.",
+      "Mentored peers on web development practices and collaborative project delivery.",
+      "Supported campus tech initiatives used by thousands of students.",
     ],
   },
 ];
@@ -168,87 +176,69 @@ const testimonials = [
     company: "Acme Co",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
 ];
 
 const projects = [
   {
+    name: "Voice-Driven Interview Scheduler",
+    description:
+      "Automated interview scheduling with voice interaction—coordinating ~60% of the workflow. Integrated Vosk, Mozilla TTS, and node-nlp (85%+ accuracy), Google Calendar sync, Twilio calls, and scalable MySQL-backed REST APIs with ~40% faster responses.",
+    tags: [
+      { name: "Node.js", color: "blue-text-gradient" },
+      { name: "MySQL", color: "green-text-gradient" },
+      { name: "Vosk", color: "pink-text-gradient" },
+    ],
+    image: tripguide,
+    source_code_link: "https://github.com/AMANverma9118",
+  },
+  {
+    name: "Mythica Jewels",
+    description:
+      "Full-stack luxury jewelry e-commerce platform on the MERN stack. Secure REST APIs for auth, catalog, cart, and orders; responsive, visually rich UI; admin tools for products, inventory, and users.",
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "Node.js", color: "green-text-gradient" },
+      { name: "MongoDB", color: "pink-text-gradient" },
+    ],
+    image: mythicaJewels,
+    source_code_link: "https://github.com/AMANverma9118",
+    live_demo_link: "https://mythica-jewels.vercel.app/",
+  },
+  {
     name: "Conatus Website",
     description:
-      "A web-based platform that provides detailed information about Conatus members, highlighting their skills, roles, and achievements. It also showcases the projects and work accomplished by Conatus. Each profile includes links for easy communication via messaging, email, and social media.",
+      "Full-stack society platform used by 4K+ students—coordinator profiles, pagination, lazy-loading (UX improved ~45%), and role-based access with secure REST APIs for admins and members.",
     tags: [
-      {
-        name: "HTML",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "CSS",
-        color: "green-text-gradient",
-      },
-      {
-        name: "JavaScript",
-        color: "pink-text-gradient",
-      },
+      { name: "React", color: "blue-text-gradient" },
+      { name: "Node.js", color: "green-text-gradient" },
+      { name: "Figma", color: "pink-text-gradient" },
     ],
     image: carrent,
     source_code_link: "https://github.com/AMANverma9118/Conatus-Website",
   },
-  {
-    name: "Education Website",
-    description:
-      "A web application that lets users explore the college campus and discover various degree programs. Users can contact the college through a simple inquiry form. It serves as a helpful guide for prospective students seeking information about education and campus life.",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Firebase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Bootstrap",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/AMANverma9118/Education-Website",
-  },
-  {
-    name: "iNotebok",
-    description:"iNotebook is a website that provides login and signup options for users to securely store their personal information. It allows users to easily edit and delete their entries as needed. The platform is designed for a user-friendly experience in managing personal notes and data.",
-    tags: [
-      {
-        name: "React",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Node",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Mongodb",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: tripguide,
-    source_code_link: "https://github.com/AMANverma9118/Notebook",
-  },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const overview = {
+  headline: "Software Development Engineer building scalable full-stack products.",
+  paragraphs: [
+    "I'm Aman Verma, an SDE at RapidFacto and a B.Tech CSE student at Ajay Kumar Garg Engineering College (CGPA 8.35/10). I design and ship production web apps end to end—React frontends, Node/Flask backends, and SQL/NoSQL data layers.",
+    "Recently I've delivered 10+ full-stack applications, 25+ secure REST APIs, OnlyOffice real-time collaboration, and performance wins of 35–40% on response time and latency. Previously at First500days I helped scale products to 5,000+ active users and integrated AI/ML APIs into real workflows.",
+    "I care about clean APIs, measurable UX improvements, and shipping features that hold up under real traffic—whether that's voice-driven automation, e-commerce, or campus platforms used by thousands of students.",
+  ],
+  highlights: [
+    { label: "Apps shipped", value: "10+" },
+    { label: "REST APIs", value: "25+" },
+    { label: "Active users served", value: "5K+" },
+    { label: "LeetCode solved", value: "250+" },
+  ],
+};
+
+export {
+  services,
+  technologies,
+  techCategories,
+  experiences,
+  testimonials,
+  projects,
+  overview,
+};

@@ -17,7 +17,9 @@ import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
-import threejs from "./tech/threejs.svg";
+import threejs from "./tech/threejs.png";
+import flask from "./tech/flask.png";
+import aws from "./tech/aws.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -27,6 +29,8 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import mythicaJewels from "./Mythica_Jewels_luxary.png";
+import resume from "./resume/Aman Verma Resume.pdf";
 
 export {
   logo,
@@ -48,6 +52,8 @@ export {
   redux,
   tailwind,
   threejs,
+  flask,
+  aws,
   meta,
   shopify,
   starbucks,
@@ -55,4 +61,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  mythicaJewels,
+  resume,
 };
