@@ -151,6 +151,10 @@ const ProjectCard = ({
   index,
   name,
   description,
+  purpose,
+  contribution,
+  features,
+  challenge,
   tags,
   image,
   images,
@@ -167,8 +171,8 @@ const ProjectCard = ({
       className="h-full"
     >
       <Tilt
-        options={{ max: 12, scale: 1.01, speed: 450 }}
-        className="group flex h-full flex-col bg-tertiary/90 backdrop-blur-sm p-5 rounded-2xl w-full border border-white/[0.07] shadow-card hover:border-accent/25 hover:shadow-glow transition-[border-color,box-shadow] duration-500"
+        options={{ max: 8, scale: 1.005, speed: 450 }}
+        className="group flex h-full flex-col bg-tertiary/90 backdrop-blur-sm p-5 rounded-2xl w-full border border-edge shadow-card hover:border-accent/25 transition-[border-color,box-shadow] duration-500"
       >
         <div className="relative shrink-0">
           <ProjectCarousel images={slides} name={name} fit={fit} />
@@ -221,13 +225,37 @@ const ProjectCard = ({
         </div>
 
         <div className="mt-5 flex flex-1 flex-col">
-          <h3 className="text-white font-display font-bold text-[22px] tracking-tight min-h-[2.75rem] leading-snug">
+          <h3 className="text-ink font-display font-bold text-[22px] tracking-tight min-h-[2.75rem] leading-snug">
             {name}
           </h3>
-          <p className="mt-2 text-secondary text-[14px] leading-relaxed line-clamp-3 min-h-[4.5rem]">
-            {description}
+          <p className="mt-2 text-secondary text-[14px] leading-relaxed">
+            <span className="text-ink/80 font-medium">Purpose: </span>
+            {purpose || description}
           </p>
-          <div className="mt-3 min-h-[1.25rem]">
+          {contribution ? (
+            <p className="mt-2 text-secondary text-[13px] leading-relaxed">
+              <span className="text-ink/80 font-medium">What I built: </span>
+              {contribution}
+            </p>
+          ) : null}
+          {features?.length ? (
+            <ul className="mt-3 space-y-1.5">
+              {features.slice(0, 3).map((feature) => (
+                <li
+                  key={feature}
+                  className="text-[12px] text-secondary leading-snug pl-3 border-l border-accent/30"
+                >
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          ) : null}
+          {challenge ? (
+            <p className="mt-3 text-[12px] text-secondary/90 leading-relaxed italic">
+              Challenge: {challenge}
+            </p>
+          ) : null}
+          <div className="mt-3 min-h-[1.25rem] flex flex-wrap gap-x-4 gap-y-1">
             {live_demo_link ? (
               <a
                 href={live_demo_link}
@@ -235,7 +263,17 @@ const ProjectCard = ({
                 rel="noreferrer"
                 className="inline-block text-[13px] font-medium text-accent-2 hover:text-accent transition-colors"
               >
-                Visit live site →
+                Live demo →
+              </a>
+            ) : null}
+            {source_code_link ? (
+              <a
+                href={source_code_link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block text-[13px] font-medium text-secondary hover:text-ink transition-colors"
+              >
+                GitHub →
               </a>
             ) : null}
           </div>
@@ -260,8 +298,8 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
+        <p className={styles.sectionSubText}>Selected work</p>
+        <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -269,8 +307,8 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 0.85)}
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[1.75]"
         >
-          Selected projects that showcase how I approach product UI, data flow,
-          and maintainable code—from concept to deployment.
+          Engineering-focused builds—architecture, APIs, data, integrations,
+          and deployment—not just UI demos.
         </motion.p>
       </div>
 

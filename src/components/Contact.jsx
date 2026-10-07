@@ -3,38 +3,41 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
+import { resume } from "../assets";
+import { socialLinks } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const channels = [
   {
     label: "Email",
-    value: "aman.verma3497924@gmail.com",
-    href: "mailto:aman.verma3497924@gmail.com",
-    hint: "Best for detailed briefs",
+    value: socialLinks.email,
+    href: `mailto:${socialLinks.email}`,
+    hint: "Recruiters & project briefs",
   },
   {
-    label: "Phone",
-    value: "+91 91183 59330",
-    href: "tel:+919118359330",
-    hint: "Call or WhatsApp",
+    label: "LinkedIn",
+    value: "Professional profile",
+    href: socialLinks.linkedin,
+    hint: "Experience & network",
   },
   {
     label: "GitHub",
     value: "AMANverma9118",
-    href: "https://github.com/AMANverma9118",
-    hint: "Code & projects",
+    href: socialLinks.github,
+    hint: "Code & repositories",
   },
   {
-    label: "Based in",
-    value: "Ghaziabad, UP",
-    href: null,
-    hint: "Open to remote",
+    label: "Resume",
+    value: "Download PDF",
+    href: resume,
+    hint: "For hiring managers",
+    download: true,
   },
 ];
 
 const fieldClass =
-  "peer w-full bg-transparent border-0 border-b border-white/15 px-0 py-3 text-white placeholder:text-secondary/50 outline-none transition-[border-color] duration-300 focus:border-accent-2";
+  "peer w-full bg-transparent border-0 border-b border-edge px-0 py-3 text-ink placeholder:text-secondary/50 outline-none transition-[border-color] duration-300 focus:border-accent-2";
 
 const Contact = () => {
   const formRef = useRef();
@@ -62,15 +65,14 @@ const Contact = () => {
       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY || ""
     ).trim();
     const toEmail = String(
-      import.meta.env.VITE_APP_EMAILJS_TO_EMAIL ||
-        "aman.verma3497924@gmail.com"
+      import.meta.env.VITE_APP_EMAILJS_TO_EMAIL || socialLinks.email
     ).trim();
 
     if (!serviceId || !templateId || !publicKey) {
       setLoading(false);
       setStatus({
         type: "error",
-        message: "Unable to send right now. Please try again later.",
+        message: "Unable to send right now. Please email me directly.",
       });
       return;
     }
@@ -82,7 +84,6 @@ const Contact = () => {
       reply_to: form.email,
       to_email: toEmail,
       message: form.message,
-      // Common EmailJS default template aliases
       user_name: form.name,
       user_email: form.email,
       name: form.name,
@@ -104,55 +105,53 @@ const Contact = () => {
         console.error(error);
         setStatus({
           type: "error",
-          message: "Unable to send right now. Please try again later.",
+          message: "Unable to send right now. Please email me directly.",
         });
       });
   };
 
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-accent-2/10 blur-3xl" />
+      <div
+        className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-accent/15 blur-3xl"
+        aria-hidden
+      />
 
       <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start">
-        {/* Left — story + channels */}
         <div>
           <motion.div variants={textVariant()}>
-            <p className={styles.sectionSubText}>Get in touch</p>
-            <h3 className={`${styles.sectionHeadText} mt-1`}>
-              Let&apos;s talk.
-            </h3>
+            <p className={styles.sectionSubText}>Contact</p>
+            <h2 className={`${styles.sectionHeadText} mt-1`}>
+              Interested in working together?
+            </h2>
           </motion.div>
 
           <motion.p
             variants={fadeIn("", "", 0.08, 0.7)}
             className="mt-4 text-secondary text-[16px] sm:text-[17px] leading-relaxed max-w-md"
           >
-            Building something ambitious? Need a full-stack partner for product,
-            APIs, or performance work—I&apos;m easy to reach.
+            Open to full-time Full-Stack / Software Engineer roles. If you have
+            a product to build, you can also reach out about project work.
           </motion.p>
-
-          <motion.div
-            variants={fadeIn("up", "tween", 0.12, 0.65)}
-            className="mt-8 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3.5 py-1.5"
-          >
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[12px] font-medium text-emerald-300/95 tracking-wide">
-              Available for roles & freelance
-            </span>
-          </motion.div>
 
           <motion.ul
             variants={fadeIn("up", "tween", 0.18, 0.7)}
-            className="mt-10 space-y-0 divide-y divide-white/[0.07] border-y border-white/[0.07]"
+            className="mt-10 space-y-0 divide-y divide-edge border-y border-edge"
           >
             {channels.map((item) => {
               const Wrapper = item.href ? "a" : "div";
               const props = item.href
                 ? {
                     href: item.href,
-                    target: item.href.startsWith("http") ? "_blank" : undefined,
-                    rel: item.href.startsWith("http") ? "noreferrer" : undefined,
+                    target:
+                      item.href.startsWith("http") || item.download
+                        ? "_blank"
+                        : undefined,
+                    rel:
+                      item.href.startsWith("http") || item.download
+                        ? "noreferrer"
+                        : undefined,
+                    download: item.download || undefined,
                   }
                 : {};
 
@@ -168,7 +167,7 @@ const Contact = () => {
                       <p className="text-[11px] uppercase tracking-[0.2em] text-secondary">
                         {item.label}
                       </p>
-                      <p className="mt-1 text-[15px] sm:text-[16px] text-white font-medium truncate group-hover:text-accent-2 transition-colors">
+                      <p className="mt-1 text-[15px] sm:text-[16px] text-ink font-medium truncate group-hover:text-accent-2 transition-colors">
                         {item.value}
                       </p>
                     </div>
@@ -189,15 +188,20 @@ const Contact = () => {
           </motion.ul>
         </div>
 
-        {/* Right — underline form (no heavy card chrome) */}
         <motion.div
           variants={fadeIn("left", "tween", 0.15, 0.75)}
           className="relative"
         >
-          <div className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-transparent border border-white/[0.06] -z-10" />
+          <div
+            className="absolute -inset-4 sm:-inset-6 rounded-[2rem] bg-gradient-to-br from-white/[0.04] to-transparent border border-edge -z-10"
+            aria-hidden
+          />
 
-          <p className="font-display text-lg text-white/90 font-semibold tracking-tight mb-8">
+          <p className="font-display text-lg text-ink font-semibold tracking-tight mb-2">
             Send a message
+          </p>
+          <p className="text-[13px] text-secondary mb-8">
+            Roles, collaborations, or project ideas—include a little context.
           </p>
 
           <form
@@ -246,7 +250,7 @@ const Contact = () => {
                 rows={4}
                 value={form.message}
                 onChange={handleChange}
-                placeholder="Project idea, timeline, or just hello…"
+                placeholder="Role, timeline, or project overview…"
                 className={`${fieldClass} resize-none min-h-[120px]`}
                 required
               />
@@ -256,7 +260,7 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-2 px-8 py-3.5 text-[14px] font-semibold keep-white text-on-accent shadow-glow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-2 px-8 py-3.5 text-[14px] font-semibold keep-white text-on-accent shadow-glow-sm disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2"
                 whileHover={{ scale: loading ? 1 : 1.02 }}
                 whileTap={{ scale: loading ? 1 : 0.98 }}
               >
@@ -276,6 +280,7 @@ const Contact = () => {
                         ? "text-emerald-400"
                         : "text-rose-400"
                     }`}
+                    role="status"
                   >
                     {status.message}
                   </motion.p>

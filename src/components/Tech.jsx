@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
-import { techCategories, technologies } from "../constants";
+import { skillGroups, techCategories, technologies } from "../constants";
 import { styles } from "../styles";
 import { fadeIn, textVariant } from "../utils/motion";
 import { useTheme } from "../context/ThemeContext";
@@ -59,19 +59,44 @@ const Tech = () => {
   return (
     <>
       <motion.div variants={textVariant()} className="text-center">
-        <p className={styles.sectionSubText}>My stack</p>
-        <h2 className={styles.sectionHeadText}>Technologies.</h2>
+        <p className={styles.sectionSubText}>Technical skills</p>
+        <h2 className={styles.sectionHeadText}>Skills & Stack</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 0.75)}
         className="mt-4 text-secondary text-[17px] max-w-2xl mx-auto text-center leading-relaxed"
       >
-        A living toolkit—hover a mark to name it, filter to focus a layer of the
-        stack.
+        Technologies I use to ship production web applications—grouped for
+        clarity, with a live toolkit below.
       </motion.p>
 
-      {/* Signature dual marquees */}
+      <motion.div
+        variants={fadeIn("up", "tween", 0.1, 0.65)}
+        className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
+      >
+        {skillGroups.map((group) => (
+          <div
+            key={group.title}
+            className="rounded-2xl border border-edge bg-panel/40 p-5"
+          >
+            <h3 className="text-[12px] uppercase tracking-[0.18em] text-accent font-semibold">
+              {group.title}
+            </h3>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={`${group.title}-${item}`}
+                  className="rounded-full border border-edge bg-primary/40 px-3 py-1 text-[13px] text-ink"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </motion.div>
+
       <motion.div
         variants={fadeIn("up", "tween", 0.12, 0.7)}
         className="mt-12 space-y-3 rounded-[2rem] border border-edge bg-panel/40 py-6"

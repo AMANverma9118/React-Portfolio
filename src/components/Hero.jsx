@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import { resume } from "../assets";
+import { socialLinks } from "../constants";
 import { staggerContainer, staggerItem } from "../utils/motion";
 import HeroBackground from "./HeroBackground";
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-[100svh] mx-auto flex flex-col justify-center pb-24 overflow-hidden">
+    <section className="relative w-full min-h-[100svh] mx-auto flex flex-col justify-center pb-28 overflow-hidden">
       <HeroBackground />
 
       <motion.div
@@ -19,6 +20,7 @@ const Hero = () => {
         <motion.div
           variants={staggerItem}
           className="flex flex-col justify-center items-center mt-3 sm:mt-4"
+          aria-hidden
         >
           <div className="relative">
             <span className="absolute inset-0 rounded-full bg-accent/40 blur-md animate-pulse-soft" />
@@ -30,45 +32,45 @@ const Hero = () => {
         <div className="flex-1 space-y-6 sm:space-y-8">
           <motion.p
             variants={staggerItem}
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-3 py-1 text-accent-2/95 text-sm sm:text-base font-medium tracking-wide backdrop-blur-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-edge bg-panel/70 px-3 py-1 text-secondary text-sm sm:text-base font-medium tracking-wide backdrop-blur-sm"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-2 animate-pulse" />
             SDE @ RapidFacto · B.Tech CSE, AKGEC
           </motion.p>
 
           <motion.div variants={staggerItem} className="space-y-4">
-            <h1
-              className={`${styles.heroHeadText} drop-shadow-[0_0_40px_rgba(34,211,238,0.15)]`}
-            >
-              Hi, I&apos;m{" "}
-              <span className="text-gradient-hero">Aman</span>
+            <p className="text-accent text-[13px] sm:text-sm font-semibold uppercase tracking-[0.18em]">
+              Full-Stack Developer · Software Engineer
+            </p>
+            <h1 className={`${styles.heroHeadText}`}>
+              Building{" "}
+              <span className="text-gradient-hero">scalable web</span>{" "}
+              applications
             </h1>
             <p className={`${styles.heroSubText}`}>
-              I build production full-stack apps—React UIs, secure REST APIs,
-              and data layers that stay fast under real users.
+              I build production-ready web applications across the frontend,
+              backend, databases, APIs, integrations, and deployment.
             </p>
           </motion.div>
 
           <motion.div
             variants={staggerItem}
-            className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2"
+            className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1"
           >
             <motion.a
               href="#projects"
-              className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold keep-white text-on-accent bg-gradient-to-r from-accent to-accent-2 shadow-glow-sm"
-              whileHover={{
-                scale: 1.03,
-                boxShadow: "0 0 48px -8px rgba(167,139,250,0.55)",
-              }}
+              className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold keep-white text-on-accent bg-gradient-to-r from-accent to-accent-2 shadow-glow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-2"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              View projects
+              View My Work
             </motion.a>
             <motion.a
               href={resume}
+              download
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-ink border border-accent/35 bg-accent/10 hover:bg-accent/20 hover:border-accent/55 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold text-ink border border-accent/35 bg-accent/10 hover:bg-accent/20 hover:border-accent/55 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -84,35 +86,59 @@ const Hero = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
                 />
               </svg>
-              Resume
+              Download Resume
             </motion.a>
             <motion.a
               href="#contact"
-              className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-ink border border-edge glass-panel hover:border-accent/40 transition-colors"
+              className="inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-ink border border-edge glass-panel hover:border-accent/40 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Let&apos;s talk
+              Contact Me
             </motion.a>
+          </motion.div>
+
+          <motion.div
+            variants={staggerItem}
+            className="flex flex-wrap items-center gap-4 text-sm text-secondary"
+          >
             <a
-              href="https://github.com/AMANverma9118"
+              href="#services"
+              className="hover:text-ink underline-offset-4 hover:underline transition-colors"
+            >
+              Available for freelance projects
+            </a>
+            <span className="text-edge" aria-hidden>
+              ·
+            </span>
+            <a
+              href={socialLinks.github}
               target="_blank"
               rel="noreferrer"
-              className="text-sm text-secondary hover:text-ink underline-offset-4 hover:underline transition-colors"
+              className="hover:text-ink underline-offset-4 hover:underline transition-colors"
             >
               GitHub
+            </a>
+            <a
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-ink underline-offset-4 hover:underline transition-colors"
+            >
+              LinkedIn
             </a>
           </motion.div>
         </div>
       </motion.div>
 
-      <div className="absolute xs:bottom-8 bottom-16 left-0 right-0 flex justify-center items-center z-10 pointer-events-none">
+      <div className="absolute xs:bottom-8 bottom-14 left-0 right-0 flex justify-center items-center z-10 pointer-events-none">
         <a
-          href="#about"
+          href="#credibility"
           className="group flex flex-col items-center gap-2 pointer-events-auto"
+          aria-label="Scroll to credibility"
         >
           <span className="text-[11px] uppercase tracking-[0.25em] text-secondary group-hover:text-accent transition-colors">
             Scroll
@@ -125,7 +151,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="w-2.5 h-2.5 rounded-full bg-gradient-to-b from-accent to-accent-2"
+              className="w-2.5 h-2.5 rounded-full bg-gradient-to-b from-accent to-accent-2 motion-reduce:animate-none"
             />
           </div>
         </a>

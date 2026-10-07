@@ -43,14 +43,14 @@ const ExperienceCard = ({ experience, isLight }) => {
         <div className="flex justify-center items-center w-full h-full">
           <img
             src={experience.icon}
-            alt={experience.company_name}
+            alt=""
             className="w-[58%] h-[58%] object-contain"
           />
         </div>
       }
     >
       <div>
-        <h3 className="text-white text-[22px] font-display font-bold tracking-tight">
+        <h3 className="text-ink text-[22px] font-display font-bold tracking-tight">
           {experience.title}
         </h3>
         <p
@@ -58,6 +58,12 @@ const ExperienceCard = ({ experience, isLight }) => {
           style={{ margin: 0 }}
         >
           {experience.company_name}
+          {experience.location ? (
+            <span className="text-secondary font-medium">
+              {" "}
+              · {experience.location}
+            </span>
+          ) : null}
         </p>
       </div>
 
@@ -65,12 +71,25 @@ const ExperienceCard = ({ experience, isLight }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100/95 text-[14px] pl-4 border-l-2 border-accent/35 leading-relaxed tracking-wide"
+            className="text-secondary text-[14px] pl-4 border-l-2 border-accent/35 leading-relaxed tracking-wide"
           >
             {point}
           </li>
         ))}
       </ul>
+
+      {experience.tech?.length ? (
+        <div className="mt-5 flex flex-wrap gap-2">
+          {experience.tech.map((item) => (
+            <span
+              key={`${experience.company_name}-${item}`}
+              className="text-[12px] font-medium px-2.5 py-1 rounded-full border border-edge bg-panel/60 text-secondary"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      ) : null}
     </VerticalTimelineElement>
   );
 };
@@ -83,11 +102,15 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          Professional background
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work experience.
+          Work Experience
         </h2>
+        <p className="mt-4 mx-auto max-w-2xl text-center text-secondary text-[15px] sm:text-[16px] leading-relaxed">
+          Roles, impact, and technologies—written for recruiters who need the
+          signal quickly.
+        </p>
       </motion.div>
 
       <div className="mt-16 sm:mt-20 flex flex-col">
