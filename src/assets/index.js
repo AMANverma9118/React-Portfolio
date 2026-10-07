@@ -38,6 +38,7 @@ import interviewDesk from "./Interview_desk.png";
 import interviewDesk2 from "./Interview_desk_2.png";
 import interviewDesk3 from "./Interview_desk_3.png";
 import interviewDesk4 from "./Interview_desk_4.png";
+import amanPortrait from "./Aman_1.jpeg";
 import resume from "./resume/Aman Verma Resume.pdf";
 
 export {
@@ -78,5 +79,6 @@ export {
   interviewDesk2,
   interviewDesk3,
   interviewDesk4,
+  amanPortrait,
   resume,
 };
