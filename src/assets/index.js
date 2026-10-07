@@ -30,6 +30,14 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import mythicaJewels from "./Mythica_Jewels_luxary.png";
+import mythicaJewels2 from "./Mythica_Jewels_luxary_2.png";
+import mythicaJewels3 from "./Mythica_Jewels_luxary_3.png";
+import mythicaJewels4 from "./Mythica_Jewels_luxary_4.png";
+import mythicaJewels5 from "./Mythica_Jewels_luxary_5.png";
+import interviewDesk from "./Interview_desk.png";
+import interviewDesk2 from "./Interview_desk_2.png";
+import interviewDesk3 from "./Interview_desk_3.png";
+import interviewDesk4 from "./Interview_desk_4.png";
 import resume from "./resume/Aman Verma Resume.pdf";
 
 export {
@@ -62,5 +70,13 @@ export {
   jobit,
   tripguide,
   mythicaJewels,
+  mythicaJewels2,
+  mythicaJewels3,
+  mythicaJewels4,
+  mythicaJewels5,
+  interviewDesk,
+  interviewDesk2,
+  interviewDesk3,
+  interviewDesk4,
   resume,
 };

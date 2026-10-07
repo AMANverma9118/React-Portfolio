@@ -20,6 +20,14 @@ import {
   jobit,
   tripguide,
   mythicaJewels,
+  mythicaJewels2,
+  mythicaJewels3,
+  mythicaJewels4,
+  mythicaJewels5,
+  interviewDesk,
+  interviewDesk2,
+  interviewDesk3,
+  interviewDesk4,
   aws,
 } from "../assets";
 
@@ -188,8 +196,12 @@ const projects = [
       { name: "MySQL", color: "green-text-gradient" },
       { name: "Vosk", color: "pink-text-gradient" },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/AMANverma9118",
+    image: interviewDesk,
+    images: [interviewDesk, interviewDesk2, interviewDesk3, interviewDesk4],
+    imageFit: "contain",
+    source_code_link:
+      "https://github.com/AMANverma9118/Voice-Driven-Interview-Scheduling",
+    live_demo_link: "https://voice-driven-interview-scheduling.vercel.app/",
   },
   {
     name: "Mythica Jewels",
@@ -201,7 +213,15 @@ const projects = [
       { name: "MongoDB", color: "pink-text-gradient" },
     ],
     image: mythicaJewels,
-    source_code_link: "https://github.com/AMANverma9118",
+    images: [
+      mythicaJewels,
+      mythicaJewels2,
+      mythicaJewels3,
+      mythicaJewels4,
+      mythicaJewels5,
+    ],
+    imageFit: "contain",
+    source_code_link: "https://github.com/AMANverma9118/Mythica-Jewels",
     live_demo_link: "https://mythica-jewels.vercel.app/",
   },
   {
